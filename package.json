@@ -35,7 +35,6 @@
   "scripts": {
     "start": "python -m http.server 8000",
     "dev": "live-server --port=3000 --host=0.0.0.0",
-    "build": "echo 'No build process needed for vanilla HTML/CSS/JS'",
     "test": "echo 'No automated tests yet'",
     "lint": "echo 'Add linting in future versions'",
     "format": "echo 'Add formatting in future versions'",

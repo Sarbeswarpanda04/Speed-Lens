@@ -1,0 +1,280 @@
+/* Desktop-specific fixes for Speed Lens By Sarbeswar Panda */
+
+/* Ensure settings panel is closed by default */
+.settings-panel {
+    right: -400px !important;
+    transition: right 0.3s ease;
+}
+
+.settings-panel.active {
+    right: 0 !important;
+}
+
+/* Desktop-specific animations */
+@keyframes slideInRight {
+    from {
+        right: -400px;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        right: 0;
+        opacity: 1;
+    }
+    to {
+        right: -400px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Desktop-specific improvements */
+@media (min-width: 769px) {
+    /* Prevent mobile optimizations from affecting desktop */
+    body {
+        overflow-x: auto !important;
+    }
+    
+    html {
+        overflow-x: auto !important;
+    }
+    
+    /* Better button hover effects on desktop */
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    /* Improve settings panel for desktop */
+    .settings-panel {
+        width: 400px;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Better export modal positioning */
+    .export-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .export-content {
+        max-width: 500px;
+        width: 90%;
+        margin: auto;
+    }
+    
+    /* Improve touch targets for desktop */
+    input, select, textarea, button {
+        min-height: auto;
+        min-width: auto;
+    }
+    
+    /* Better chart responsiveness */
+    .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+    }
+    
+    /* Improved gauge display */
+    .gauge-container {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    /* Better grid layouts */
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .diagnostics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Desktop-specific notification positioning */
+@media (min-width: 769px) {
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        max-width: 400px;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+    }
+    
+    .install-prompt-button {
+        display: none; /* Hide mobile install prompt on desktop */
+    }
+}
+
+/* Fix desktop scrolling issues */
+@media (min-width: 769px) {
+    .container {
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* Ensure proper spacing */
+    .speed-test-container,
+    .history-container,
+    .comparison-container,
+    .diagnostics-container {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    /* Better responsive behavior */
+    .main-controls {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .main-controls button {
+        min-width: 150px;
+    }
+}
+
+/* Fix potential layout issues */
+* {
+    box-sizing: border-box;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+    transition: all 0.3s ease;
+}
+
+button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .settings-panel {
+        border: 2px solid;
+    }
+    
+    button {
+        border: 2px solid;
+    }
+    
+    .gauge-fill {
+        border: 1px solid;
+    }
+}
+
+/* Dark mode desktop fixes */
+@media (min-width: 769px) {
+    .dark-mode .settings-panel {
+        background: #2d3748;
+        color: white;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .dark-mode .export-content {
+        background: #2d3748;
+        color: white;
+    }
+    
+    .dark-mode button {
+        border-color: #4a5568;
+    }
+}

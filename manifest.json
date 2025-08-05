@@ -1,0 +1,31 @@
+{
+    "name": "Speed Lens By Sarbeswar Panda",
+    "short_name": "Speed Lens",
+    "description": "Advanced internet speed testing and network analysis tool by Sarbeswar Panda",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#667eea",
+    "theme_color": "#667eea",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23667eea'/%3E%3Cpath d='M30 50 L50 30 L70 50 L50 70 Z' fill='white'/%3E%3C/svg%3E",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23667eea'/%3E%3Cpath d='M30 50 L50 30 L70 50 L50 70 Z' fill='white'/%3E%3C/svg%3E",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": ["utilities", "productivity"],
+    "screenshots": [
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' fill='%23f8f9fa'/%3E%3Ctext x='200' y='400' text-anchor='middle' font-size='24' fill='%23333'%3ESpeed Lens%3C/text%3E%3C/svg%3E",
+            "sizes": "400x800",
+            "type": "image/svg+xml",
+            "form_factor": "narrow"
+        }
+    ]
+}

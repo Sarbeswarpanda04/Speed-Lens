@@ -1,0 +1,1317 @@
+/* ==========  ENHANCED MOBILE FIXES AND OPTIMIZATIONS ========== */
+/* Advanced mobile optimizations with improved performance */
+
+/* Mobile Touch & Interaction Fixes */
+html, body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+/* Prevent zoom on inputs (iOS) */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+}
+
+/* Improve touch targets */
+button, .clickable {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button:active, .clickable:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/* Enhanced button ripple effect for mobile */
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    pointer-events: none;
+}
+
+button:active::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* Mobile-First Layout Fixes */
+@media (max-width: 480px) {
+    /* Container fixes */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: var(--spacing-sm) !important;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    /* Typography improvements */
+    h1, h2, h3 {
+        line-height: 1.2 !important;
+        margin-bottom: var(--spacing-xs) !important;
+        word-break: break-word;
+    }
+    
+    p, span, div {
+        line-height: 1.4 !important;
+        word-break: break-word;
+    }
+    
+    /* Header mobile fixes */
+    .header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm) 0;
+        text-align: center;
+    }
+    
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+    
+    .header-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+    
+    .header-left h1 {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        line-height: 1.2;
+        margin: 0;
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem !important;
+        opacity: 0.8;
+        margin: 0;
+        font-weight: 400;
+    }
+    
+    .header-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .header-btn {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        min-height: 36px;
+        min-width: 36px;
+        border-radius: 8px;
+    }
+    
+    /* Main containers mobile fixes */
+    .speed-test-container,
+    .history-container,
+    .comparison-container,
+    .diagnostics-container,
+    .recommendations-container,
+    .multi-server-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 16px !important;
+        margin: 16px 0 !important;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Connection status mobile */
+    .connection-status {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        margin-bottom: 20px;
+    }
+    
+    .status-item {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+.container {
+        padding: 8px !important;
+    }
+    
+    /* Compact but still desktop-quality gauges */
+    .gauge-grid {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 10px 10px !important;
+        justify-items: center;
+        align-items: start;
+        width: 100%;
+        /* max-width: 400px; */
+        margin: 20px auto;
+        padding: 0 0px;
+    }
+    
+    .gauge-container:nth-child(1),
+    .gauge-container:nth-child(2) {
+        grid-row: 1;
+        width: 100%;
+        /* max-width: 200px; */
+    }
+    
+    .gauge-container:nth-child(3) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        /* max-width: 140px; */
+    }
+    
+    .gauge-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+    .gauge {
+        width: 140px !important;
+        height: 90px !important;
+        margin: 0 auto 1px auto;
+        position: relative;
+        border-radius: 140px 140px 0 0;
+        overflow: hidden;
+    }
+    
+    .gauge-body {
+        width: 140px !important;
+        height: 70px !important;
+        position: relative;
+        overflow: hidden;
+        border-radius: 140px 140px 0 0;
+        border: 10px solid #d4e0f0 !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+        .gauge-fill {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 140px 140px 0 0;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center bottom;
+        transform: rotate(-90deg);
+    }
+
+
+    .gauge-cover {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: -8px;
+        width: 100px !important;
+        height: 60px !important;
+        background: #ffffff;
+        border-radius: 120px 120px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+    
+    .gauge-label {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        margin: 0px !important;
+        text-align: center;
+        width: 100%;
+        color: #000000;
+        text-transform: uppercase;
+    }
+    
+    .speed-value {
+        font-size: 1.2rem !important;
+        font-weight: 800 !important;
+        color: #2c2c2c !important;
+        margin-top: 0px !important;
+        line-height: 0px !important;
+        text-align: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+    .gauge-cover .speed-value + span {
+        font-size: 0.62rem !important;
+        font-weight: 500;
+        color: #1b1111;
+        margin-top: 0px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;   
+     }
+    
+    .test-button {
+        padding: 10px 16px !important;
+        font-size: 1rem !important;
+        min-height: 50px !important;
+    }
+    
+    .speed-test-container,
+    .history-container,
+    .comparison-container,
+    .diagnostics-container,
+    .recommendations-container,
+    .multi-server-container {
+        padding: 12px !important;
+        margin: 12px 0 !important;
+    }
+    
+    .history-speeds {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    #speedGraph,
+    #historyChart {
+        height: 150px !important;
+        min-width: 280px !important;
+    }
+    
+    .export-content {
+        padding: 15px !important;
+    }
+    
+    .analytics-content h3 {
+        font-size: 1.2rem !important;
+    }
+
+}
+
+/* Landscape mobile optimization - Desktop-quality */
+@media (max-width: 480px) and (orientation: landscape) {
+    .header {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 8px 0 !important;
+    }
+    
+    .header-left h1 {
+        font-size: 1.4rem !important;
+    }
+    
+    /* Desktop-like landscape gauges */
+    .gauge-grid {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 15px 12px !important;
+        max-width: 450px;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .gauge-container:nth-child(1),
+    .gauge-container:nth-child(2) {
+        grid-row: 1;
+        max-width: 150px;
+    }
+    
+    .gauge-container:nth-child(3) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 150px;
+    }
+    
+    .gauge {
+        width: 130px !important;
+        height: 65px !important;
+        margin: 0 auto 10px auto;
+    }
+    
+    .gauge-body {
+        width: 130px !important;
+        height: 65px !important;
+        border-radius: 130px 130px 0 0;
+        border: 11px solid #f0f0f0 !important;
+        border-bottom: none !important;
+        background: transparent !important;
+    }
+    
+    .gauge-cover {
+        position: absolute;
+        top: 11px;
+        left: 11px;
+        right: 11px;
+        bottom: -8px;
+        width: 108px !important;
+        height: 54px !important;
+        background: #ffffff;
+        border-radius: 108px 108px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+    
+    .gauge-label {
+        font-size: 0.85rem !important;
+        margin: 2px 0 1px 0 !important;
+    }
+    
+    .speed-value {
+        font-size: 1.5rem !important;
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    /* COMPREHENSIVE MOBILE GAUGE SYSTEM - Desktop-like perfect sizing */
+    /* .gauge-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 20px 15px !important;
+        justify-items: center;
+        align-items: start;
+        width: 100%;
+        max-width: 400px;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    
+    /* First row: Download and Upload gauges */
+    /* .gauge-container:nth-child(1),
+    .gauge-container:nth-child(2) {
+        grid-row: 1;
+        width: 100%;
+        max-width: 180px;
+    }
+    
+    /* Second row: Ping gauge centered */
+    /* .gauge-container:nth-child(3) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        max-width: 160px;
+    }
+    
+    .gauge-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+     */
+    /* Perfect desktop-like gauge sizing */
+    /* .gauge {
+        width: 170px !important;
+        height: 70px !important;
+        margin: 0 auto 12px auto;
+        position: relative;
+        border-radius: 140px 140px 0 0;
+        overflow: hidden;
+    }
+    
+    .gauge-body {
+        width: 170px !important;
+        height: 70px !important;
+        position: relative;
+        overflow: hidden;
+        border-radius: 140px 140px 0 0;
+        border: 12px solid #f0f0f0 !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .gauge-fill {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 140px 140px 0 0;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center bottom;
+        transform: rotate(-90deg);
+    } */ 
+    
+    /* Gauge-specific gradient fills */
+    /* .download-gauge .gauge-fill {
+        background: linear-gradient(90deg, var(--success-color) 0%, var(--warning-color) 50%, var(--danger-color) 100%) !important;
+    }
+
+    .upload-gauge .gauge-fill {
+        background: linear-gradient(90deg, var(--info-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%) !important;
+    }
+
+    .ping-gauge .gauge-fill {
+        background: linear-gradient(90deg, var(--success-color) 0%, var(--warning-color) 70%, var(--danger-color) 100%) !important;
+    }
+    
+    .gauge-cover {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: -8px;
+        width: 116px !important;
+        height: 58px !important;
+        background: #ffffff;
+        border-radius: 116px 116px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+     */
+    /* Desktop-quality typography */
+    /* .gauge-label {
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
+        margin: 3px 0 1px 0 !important;
+        text-align: center;
+        width: 100%;
+        color: #555;
+        line-height: 1.2;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+    }
+    
+    .speed-value {
+        font-size: 1.6rem !important;
+        font-weight: 800 !important;
+        color: #2c2c2c !important;
+        margin: 0 !important;
+        line-height: 1;
+        text-align: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    } */
+    
+    /* Unit styling */
+    /* .gauge-cover .speed-value + span {
+        font-size: 0.7rem !important;
+        font-weight: 500;
+        color: #888;
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+     */ 
+    /* Test buttons mobile */
+    .test-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        width: 100%;
+        align-items: stretch;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    .test-button {
+        flex: 1 !important;
+        max-width: 48% !important;
+        padding: 14px 12px !important;
+        font-size: 0.95rem !important;
+        min-height: 52px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border-radius: 12px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .test-button i {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+    
+    .test-button span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Results grid mobile */
+    .results-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 12px !important;
+        width: 100%;
+        max-width: 100% !important;
+    }
+    
+    .result-item {
+        padding: 15px !important;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 10px;
+    }
+    
+    .result-label {
+        font-size: 0.85rem !important;
+        margin-bottom: 5px;
+        opacity: 0.8;
+    }
+    
+    .result-value {
+        font-size: 1.3rem !important;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    /* History section mobile */
+    .history-header {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: stretch !important;
+    }
+    
+    .history-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .history-controls button,
+    .history-controls select {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        min-height: 40px;
+        min-width: 70px;
+        border-radius: 6px;
+    }
+    
+    .history-list {
+        max-height: 400px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+    
+    .history-item {
+        padding: 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .history-speeds {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .history-speed {
+        text-align: center;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 6px;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .history-speed-label {
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+        opacity: 0.8;
+    }
+    
+    .history-speed-value {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    /* Charts mobile */
+    .chart-container {
+        width: 100% !important;
+        padding: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    #speedGraph,
+    #historyChart {
+        width: 100% !important;
+        min-width: 300px !important;
+        height: 180px !important;
+    }
+    
+    /* Settings panel mobile */
+    .settings-panel {
+        width: 100vw !important;
+        height: 100vh !important;
+        right: -100vw !important;
+        top: 0 !important;
+        border-radius: 0 !important;
+        padding: 0;
+        z-index: 10000;
+    }
+    
+    .settings-panel.active {
+        right: 0 !important;
+        transform: none !important;
+    }
+    
+    .settings-content {
+        padding: 20px !important;
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+    
+    .setting-group {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .setting-group label {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    
+    .setting-group select {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 16px !important;
+        border-radius: 8px;
+        min-height: 44px;
+        border: 1px solid #380052;
+        background: rgb(198, 225, 240);
+    }
+
+    
+    /* Notifications mobile */
+    .notification-container {
+        left: 10px !important;
+        right: 10px !important;
+        top: max(10px, env(safe-area-inset-top)) !important;
+        max-width: none !important;
+        z-index: 10001;
+    }
+    
+    .notification {
+        margin-bottom: 8px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    
+    /* Advanced features mobile */
+    .recommendation-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: var(--spacing-sm) !important;
+        padding: var(--spacing-md) !important;
+        width: 100%;
+        border-left: none !important;
+        border-top: 4px solid var(--warning-color) !important;
+    }
+    
+    .recommendation-icon {
+        align-self: center;
+        margin-bottom: var(--spacing-xs);
+        width: clamp(48px, 10vw, 60px) !important;
+        height: clamp(48px, 10vw, 60px) !important;
+        font-size: clamp(20px, 5vw, 28px) !important;
+    }
+    
+    .recommendation-content {
+        text-align: center !important;
+        width: 100%;
+    }
+    
+    .recommendation-content h4 {
+        font-size: clamp(1rem, 3vw, 1.3rem) !important;
+        margin-bottom: var(--spacing-xs) !important;
+    }
+    
+    .recommendation-content p {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+        line-height: 1.5 !important;
+    }
+    
+    .recommendation-actions {
+        justify-content: center !important;
+        width: 100%;
+        margin-top: var(--spacing-sm) !important;
+    }
+    
+    .recommendation-btn {
+        min-width: 120px !important;
+        justify-content: center !important;
+    }
+    
+    .priority-badge {
+        position: static !important;
+        margin-top: var(--spacing-xs) !important;
+        opacity: 1 !important;
+        transform: none !important;
+        align-self: center;
+    }
+    
+    /* Enhanced recommendations container mobile */
+    .recommendations,
+    .recommendations-container {
+        margin: var(--spacing-md) 0 !important;
+        padding: var(--spacing-md) !important;
+        border-radius: var(--spacing-md) !important;
+    }
+    
+    .recommendations h3,
+    .recommendations-container h3 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
+        text-align: center !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+    
+    .recommendation-list {
+        gap: var(--spacing-sm) !important;
+    }
+    
+    .comparison-grid,
+    .diagnostics-grid,
+    .analytics-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        width: 100%;
+    }
+    
+    .comparison-card,
+    .diagnostic-item,
+    .analytics-card {
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    
+    .comparison-header {
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .diagnostic-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    
+    .diagnostic-gauge {
+        width: 100% !important;
+        max-width: 200px;
+        align-self: center;
+    }
+    
+    .analytics-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    
+    .analytics-icon {
+        align-self: center;
+    }
+    
+    /* Export modal mobile */
+    .export-modal {
+        padding: 15px !important;
+        align-items: flex-start !important;
+        padding-top: max(20px, env(safe-area-inset-top)) !important;
+    }
+    
+    .export-content {
+        width: 95% !important;
+        max-width: none !important;
+        padding: 20px !important;
+        margin: 0 auto;
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .export-options {
+        gap: 12px !important;
+    }
+    
+    .export-btn {
+        padding: 12px 15px !important;
+        font-size: 0.9rem !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+        text-align: center !important;
+        min-height: 60px;
+        width: 100%;
+    }
+    
+    .export-btn small {
+        margin-left: 0 !important;
+        font-size: 0.8rem;
+    }
+    
+    /* Server results mobile */
+    .server-result-item {
+        padding: 12px !important;
+        margin: 8px 0 !important;
+        width: 100%;
+    }
+    
+    .server-result-item > div:first-child {
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .server-result-item > div:last-child {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 12px;
+    }
+    
+    /* Footer mobile - Updated for better responsive design */
+    .main-footer {
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+    
+    .footer-content {
+        padding: 25px 15px 15px !important;
+    }
+    
+    .footer-bottom {
+        padding: 18px 15px !important;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 6px !important;
+    }
+    
+    /* Mobile Footer Touch Optimizations */
+    .social-link {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    .footer-action-btn {
+        min-height: 44px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    .footer-section ul li a {
+        min-height: 44px !important;
+        padding: 8px 15px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    /* Prevent content overflow on mobile */
+    .main-footer {
+        overflow-x: hidden !important;
+    }
+    
+    .footer-content,
+    .footer-bottom-content {
+        overflow-x: hidden !important;
+    }
+    
+    /* Better text readability on mobile */
+    .footer-section ul li {
+        line-height: 1.5 !important;
+        word-wrap: break-word !important;
+    }
+    
+    .brand-description,
+    .developer-info p {
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    .container {
+        padding: 8px !important;
+    }
+    
+    /* Compact but still desktop-quality gauges */
+    .gauge-grid {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 10px 10px !important;
+        justify-items: center;
+        align-items: start;
+        width: 100%;
+        /* max-width: 400px; */
+        margin: 20px auto;
+        padding: 0 0px;
+    }
+    
+    .gauge-container:nth-child(1),
+    .gauge-container:nth-child(2) {
+        grid-row: 1;
+        width: 100%;
+        /* max-width: 200px; */
+    }
+    
+    .gauge-container:nth-child(3) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        /* max-width: 140px; */
+    }
+    
+    .gauge-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+    .gauge {
+        width: 140px !important;
+        height: 90px !important;
+        margin: 0 auto 1px auto;
+        position: relative;
+        border-radius: 140px 140px 0 0;
+        overflow: hidden;
+    }
+    
+    .gauge-body {
+        width: 140px !important;
+        height: 70px !important;
+        position: relative;
+        overflow: hidden;
+        border-radius: 140px 140px 0 0;
+        border: 10px solid #d4e0f0 !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+        .gauge-fill {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 140px 140px 0 0;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center bottom;
+        transform: rotate(-90deg);
+    }
+
+
+    .gauge-cover {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: -8px;
+        width: 100px !important;
+        height: 60px !important;
+        background: #ffffff;
+        border-radius: 120px 120px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+    
+    .gauge-label {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        margin: 0px !important;
+        text-align: center;
+        width: 100%;
+        color: #000000;
+        text-transform: uppercase;
+    }
+    
+    .speed-value {
+        font-size: 1.2rem !important;
+        font-weight: 800 !important;
+        color: #2c2c2c !important;
+        margin-top: 0px !important;
+        line-height: 0px !important;
+        text-align: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+    .gauge-cover .speed-value + span {
+        font-size: 0.62rem !important;
+        font-weight: 500;
+        color: #1b1111;
+        margin-top: 0px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;   
+     }
+    
+    .test-button {
+        padding: 10px 16px !important;
+        font-size: 1rem !important;
+        min-height: 50px !important;
+    }
+    
+    .speed-test-container,
+    .history-container,
+    .comparison-container,
+    .diagnostics-container,
+    .recommendations-container,
+    .multi-server-container {
+        padding: 12px !important;
+        margin: 12px 0 !important;
+    }
+    
+    .history-speeds {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    #speedGraph,
+    #historyChart {
+        height: 150px !important;
+        min-width: 280px !important;
+    }
+    
+    .export-content {
+        padding: 15px !important;
+    }
+    
+    .analytics-content h3 {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* Landscape mobile optimization - Desktop-quality */
+@media (max-width: 480px) and (orientation: landscape) {
+    .header {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 8px 0 !important;
+    }
+    
+    .header-left h1 {
+        font-size: 1.4rem !important;
+    }
+    
+    /* Desktop-like landscape gauges */
+    .gauge-grid {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 15px 12px !important;
+        max-width: 450px;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .gauge-container:nth-child(1),
+    .gauge-container:nth-child(2) {
+        grid-row: 1;
+        max-width: 150px;
+    }
+    
+    .gauge-container:nth-child(3) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 150px;
+    }
+    
+    .gauge {
+        width: 130px !important;
+        height: 65px !important;
+        margin: 0 auto 10px auto;
+    }
+    
+    .gauge-body {
+        width: 130px !important;
+        height: 65px !important;
+        border-radius: 130px 130px 0 0;
+        border: 11px solid #f0f0f0 !important;
+        border-bottom: none !important;
+        background: transparent !important;
+    }
+    
+    .gauge-cover {
+        position: absolute;
+        top: 11px;
+        left: 11px;
+        right: 11px;
+        bottom: -8px;
+        width: 108px !important;
+        height: 54px !important;
+        background: #ffffff;
+        border-radius: 108px 108px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+    
+    .gauge-label {
+        font-size: 0.85rem !important;
+        margin: 2px 0 1px 0 !important;
+    }
+    
+    .speed-value {
+        font-size: 1.5rem !important;
+    }
+    
+    .test-buttons {
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin: 15px 0;
+    }
+    
+    .test-button {
+        flex: 1 !important;
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-appearance: -apple-pay-button) {
+    input, select, textarea {
+        appearance: none;
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
+    
+    .container {
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Mobile optimizations for high-resolution displays */
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimizations for high DPI displays */
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    /* Reduced animation preferences */
+}

@@ -1,0 +1,408 @@
+/* ==========  ADVANCED RESPONSIVE ENHANCEMENTS ========== */
+/* Modern responsive design patterns and utilities */
+
+/* CSS Custom Properties for responsive design */
+:root {
+    /* Responsive font scale */
+    --font-scale: clamp(1rem, 0.75rem + 1vw, 1.25rem);
+    --font-scale-sm: clamp(0.875rem, 0.625rem + 1vw, 1.125rem);
+    --font-scale-lg: clamp(1.25rem, 1rem + 2vw, 2rem);
+    
+    /* Responsive spacing scale */
+    --space-scale: clamp(1rem, 0.5rem + 2vw, 2rem);
+    --space-scale-sm: clamp(0.5rem, 0.25rem + 1vw, 1rem);
+    --space-scale-lg: clamp(2rem, 1rem + 4vw, 4rem);
+    
+    /* Responsive layout variables */
+    --content-max-width: min(90vw, 1400px);
+    --content-padding: clamp(1rem, 5vw, 3rem);
+    --grid-min-width: clamp(250px, 30vw, 400px);
+}
+
+/* Enhanced container system */
+.responsive-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+/* Advanced grid system */
+.responsive-grid {
+    display: grid;
+    gap: var(--space-scale);
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width), 1fr));
+}
+
+.responsive-grid--results {
+    --grid-min-width: clamp(280px, 35vw, 400px);
+}
+
+/* Enhanced result container responsiveness */
+.results-container {
+    container-type: inline-size;
+}
+
+/* Container queries for modern browsers */
+@container (max-width: 767px) {
+    .results-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-sm) !important;
+    }
+    
+    .result-item {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md) !important;
+    }
+    
+    .result-icon {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    /* Enhanced recommendations responsive behavior */
+    .recommendation-list {
+        gap: var(--spacing-sm) !important;
+    }
+    
+    .recommendation-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: var(--spacing-md) !important;
+        border-left: none !important;
+        border-top: 4px solid var(--warning-color) !important;
+    }
+    
+    .recommendation-icon {
+        margin-bottom: var(--spacing-sm);
+        align-self: center;
+    }
+    
+    .recommendation-actions {
+        justify-content: center !important;
+        margin-top: var(--spacing-sm) !important;
+    }
+}
+
+@container (min-width: 768px) and (max-width: 1023px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--spacing-md) !important;
+    }
+    
+    .recommendation-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-md);
+    }
+}
+
+@container (min-width: 1024px) {
+    .results-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        gap: var(--spacing-lg) !important;
+    }
+    
+    .recommendation-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Responsive typography system */
+.text-responsive {
+    font-size: var(--font-scale);
+    line-height: 1.5;
+}
+
+.text-responsive--sm {
+    font-size: var(--font-scale-sm);
+    line-height: 1.4;
+}
+
+.text-responsive--lg {
+    font-size: var(--font-scale-lg);
+    line-height: 1.3;
+}
+
+/* Enhanced mobile touch interactions */
+@media (hover: none) and (pointer: coarse) {
+    .result-item {
+        cursor: default;
+        -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
+        tap-highlight-color: rgba(102, 126, 234, 0.1);
+    }
+    
+    .result-item:hover {
+        transform: none;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.1),
+            0 4px 16px rgba(0, 0, 0, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    
+    .result-item:active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Enhanced button feedback */
+    button, .clickable {
+        -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+        tap-highlight-color: rgba(102, 126, 234, 0.2);
+    }
+    
+    button:active, .clickable:active {
+        transform: scale(0.95);
+        filter: brightness(0.95);
+    }
+    
+    /* Enhanced recommendations touch feedback */
+    .recommendation-item {
+        cursor: default;
+        -webkit-tap-highlight-color: rgba(255, 152, 0, 0.1);
+        tap-highlight-color: rgba(255, 152, 0, 0.1);
+    }
+    
+    .recommendation-item:hover {
+        transform: none;
+    }
+    
+    .recommendation-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .recommendation-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* High resolution display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .result-item {
+        border-width: 0.5px;
+    }
+    
+    .result-item::before {
+        width: 2px;
+    }
+    
+    /* Crisp borders for high DPI */
+    .result-icon,
+    .result-quality {
+        border-radius: calc(var(--border-radius) - 0.5px);
+    }
+}
+
+/* Orientation-based responsive design */
+@media (orientation: landscape) and (max-height: 600px) {
+    .results-container {
+        padding: var(--spacing-sm) var(--container-padding);
+    }
+    
+    .result-item {
+        min-height: auto;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .result-icon {
+        width: clamp(35px, 6vw, 45px);
+        height: clamp(35px, 6vw, 45px);
+        font-size: clamp(1.2rem, 3vw, 1.6rem);
+    }
+}
+
+/* Foldable device support */
+@media (spanning: single-fold-vertical) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+@media (spanning: single-fold-horizontal) {
+    .results-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
+/* Advanced viewport height handling */
+.min-height-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height */
+}
+
+.height-screen {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+}
+
+/* Safe area insets for modern mobile devices */
+.safe-insets {
+    padding-left: max(var(--container-padding), env(safe-area-inset-left));
+    padding-right: max(var(--container-padding), env(safe-area-inset-right));
+    padding-top: max(var(--spacing-sm), env(safe-area-inset-top));
+    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
+}
+
+/* Performance optimizations for mobile */
+.smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.hardware-accelerated {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* Remove will-change after animation */
+.hardware-accelerated.animation-complete {
+    will-change: auto;
+}
+
+/* Enhanced focus management */
+.focus-ring {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius);
+}
+
+.focus-ring:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Responsive image handling */
+.responsive-media {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+/* Dark mode responsive adjustments */
+@media (prefers-color-scheme: dark) {
+    .result-item {
+        background: rgba(30, 30, 30, 0.95);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+    
+    .result-label {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .result-value {
+        color: #ffffff;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .result-item:hover {
+        transform: none;
+    }
+    
+    .hardware-accelerated {
+        transform: none;
+    }
+}
+
+/* Enhanced contrast for accessibility */
+@media (prefers-contrast: high) {
+    .result-item {
+        border-width: 2px;
+        border-color: CanvasText;
+        background: Canvas;
+    }
+    
+    .result-value {
+        background: none;
+        -webkit-text-fill-color: CanvasText;
+        color: CanvasText;
+    }
+    
+    .result-label {
+        color: CanvasText;
+    }
+}
+
+/* Print optimizations */
+@media print {
+    .results-container {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .result-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        background: white !important;
+        transform: none !important;
+    }
+    
+    .result-item::before,
+    .result-item::after {
+        display: none !important;
+    }
+}
+
+/* Utility classes for responsive design */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Responsive show/hide utilities */
+@media (max-width: 767px) {
+    .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hide-tablet { display: none !important; }
+}
+
+@media (min-width: 1024px) {
+    .hide-desktop { display: none !important; }
+}
+
+@media (min-width: 768px) {
+    .show-mobile-only { display: none !important; }
+}
+
+@media (max-width: 767px) {
+    .show-desktop-only { display: none !important; }
+}

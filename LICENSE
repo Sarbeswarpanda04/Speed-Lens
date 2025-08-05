@@ -1,0 +1,111 @@
+MIT License
+
+Copyright (c) 2024 Sarbeswar Panda
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+This project includes or depends on the following third-party libraries and resources:
+
+### Chart.js
+- **License**: MIT License
+- **Copyright**: Chart.js Contributors
+- **Source**: https://github.com/chartjs/Chart.js
+- **Use**: Data visualization and charting functionality
+
+### Font Awesome
+- **License**: SIL OFL 1.1 (Icons), MIT License (CSS/JS)
+- **Copyright**: Fonticons, Inc.
+- **Source**: https://fontawesome.com/
+- **Use**: Icons throughout the application
+
+### Google Fonts (Inter)
+- **License**: SIL Open Font License 1.1
+- **Copyright**: The Inter Project Authors
+- **Source**: https://fonts.google.com/specimen/Inter
+- **Use**: Primary typography font
+
+## Attribution
+
+### External Resources
+
+This project may include code snippets, design patterns, or concepts inspired by:
+- Web Performance APIs documentation (MDN Web Docs)
+- Progressive Web App best practices (Google Developers)
+- Accessibility guidelines (W3C WCAG)
+- Modern CSS techniques (CSS-Tricks, Web.dev)
+
+### Acknowledgments
+
+Special thanks to:
+- The open-source community for tools and libraries
+- Browser vendors for implementing web standards
+- Contributors and testers who helped improve this project
+- Users who provided feedback and bug reports
+
+## Legal Disclaimer
+
+### No Warranty
+
+This software is provided "as is" without warranty of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+### Limitation of Liability
+
+In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
+### Network Testing Disclaimer
+
+This software performs network speed tests by transferring data to and from remote servers. Users should be aware that:
+
+1. **Data Usage**: Speed tests consume internet data/bandwidth
+2. **Accuracy**: Results may vary based on network conditions, server load, and other factors
+3. **ISP Terms**: Users should ensure speed testing complies with their ISP's terms of service
+4. **No Guarantee**: The software does not guarantee accuracy of measurements
+
+### Privacy Notice
+
+This software:
+- Does not collect personal information
+- Stores test results locally on the user's device
+- Does not transmit personal data to external servers
+- May connect to internet speed test servers for measurement purposes
+
+### Export Compliance
+
+This software may be subject to export control laws and regulations. Users are responsible for compliance with applicable laws in their jurisdiction.
+
+## Contact Information
+
+**Developer**: Sarbeswar Panda
+**GitHub**: https://github.com/Sarbeswarpanda04
+**Email**: sarbeswarpanda04@gmail.com
+
+For license questions or permissions beyond the scope of this license, please contact the developer.
+
+## License History
+
+- **v1.0 (2024)**: Initial MIT License release
+- **Current**: MIT License with attribution requirements for third-party components
+
+---
+
+*This license file was last updated on December 31, 2024*

@@ -1,0 +1,78 @@
+{
+  "name": "speed-lens",
+  "version": "2.0.0",
+  "description": "Professional internet speed testing application with modern UI, real-time analytics, and comprehensive network diagnostics",
+  "main": "index.html",
+  "keywords": [
+    "speed-test",
+    "network-analyzer",
+    "internet-speed",
+    "bandwidth-test",
+    "latency-test",
+    "pwa",
+    "responsive-design",
+    "javascript",
+    "css3",
+    "html5",
+    "web-app",
+    "network-diagnostics",
+    "performance-monitoring"
+  ],
+  "author": {
+    "name": "Sarbeswar Panda",
+    "email": "sarbeswarpanda04@gmail.com",
+    "url": "https://github.com/Sarbeswarpanda04"
+  },
+  "license": "MIT",
+  "homepage": "https://sarbeswarpanda04.github.io/speed-lens/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sarbeswarpanda04/speed-lens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sarbeswarpanda04/speed-lens/issues"
+  },
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=3000 --host=0.0.0.0",
+    "build": "echo 'No build process needed for vanilla HTML/CSS/JS'",
+    "test": "echo 'No automated tests yet'",
+    "lint": "echo 'Add linting in future versions'",
+    "format": "echo 'Add formatting in future versions'",
+    "serve": "http-server -p 8080 -c-1",
+    "deploy": "echo 'Deploy to GitHub Pages automatically'"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "manifest.json",
+    "*.css",
+    "*.js",
+    "*.md",
+    "assets/",
+    ".github/"
+  ],
+  "directories": {
+    "doc": "docs"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/Sarbeswarpanda04"
+  },
+  "private": false,
+  "preferGlobal": false
+}

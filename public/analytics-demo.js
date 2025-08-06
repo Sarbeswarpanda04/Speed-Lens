@@ -57,11 +57,22 @@ class AnalyticsManager {
     }
 
     initializeAnalytics() {
+        // Force detailed analytics to take priority
+        this.setupDetailedView();
         this.updateStatistics();
         this.createChart();
         this.generateInsights();
         this.setupEventListeners();
         this.animateStatCards();
+    }
+
+    setupDetailedView() {
+        // Ensure the detailed analytics view is always shown
+        const container = document.getElementById('analyticsContainer');
+        if (container) {
+            container.setAttribute('data-view', 'detailed');
+            container.classList.add('detailed-analytics');
+        }
     }
 
     setupEventListeners() {

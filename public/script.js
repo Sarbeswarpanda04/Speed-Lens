@@ -1238,6 +1238,12 @@ class SpeedLens {
     }
 
     displayAnalytics(analytics) {
+        // Skip basic analytics display if detailed analytics manager is available
+        if (window.analyticsManager) {
+            console.log('Using detailed analytics manager instead of basic analytics');
+            return;
+        }
+        
         const analyticsContainer = document.getElementById('analyticsContainer');
         if (!analyticsContainer) return;
         

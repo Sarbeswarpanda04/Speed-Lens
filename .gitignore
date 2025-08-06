@@ -81,7 +81,6 @@ dist
 
 # Gatsby files
 .cache/
-public
 
 # Vuepress build output
 .vuepress/dist
@@ -144,7 +143,6 @@ $RECYCLE.BIN/
 # Build outputs
 build/
 dist/
-public/
 
 # Test outputs
 test-results/

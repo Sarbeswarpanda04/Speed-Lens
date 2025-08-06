@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Lens Admin Panel - By Sarbeswar Panda</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="admin-navbar">
+        <div class="navbar-brand">
+            <div class="brand-logo">
+                <i class="fas fa-tachometer-alt"></i>
+                <span class="brand-text">Speed Lens Admin</span>
+            </div>
+            <div class="brand-subtitle">By Sarbeswar Panda</div>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="globalSearch" placeholder="Search admin panel...">
+            </div>
+            
+            <div class="navbar-actions">
+                <button class="navbar-btn" id="notificationsBtn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <button class="navbar-btn" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                
+                <div class="user-menu">
+                    <button class="user-avatar" id="userMenuBtn">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0xNiA3QTE2IDQgMCAwIDEgOCAxMUE0IDQgMCAwIDEgMTYgNyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEyIDE0QzE2LjQxODMgMTQgMjAgMTUuNzkwOCAyMCAxOFYyMkg0VjE4QzQgMTUuNzkwOCA3LjU4MTcgMTQgMTIgMTQiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Admin">
+                        <span class="user-name">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#help"><i class="fas fa-question-circle"></i> Help</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Main</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item active">
+                            <a href="#dashboard" class="nav-link" data-page="dashboard">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#users" class="nav-link" data-page="users">
+                                <i class="fas fa-users"></i>
+                                <span>User Management</span>
+                                <span class="nav-badge">156</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#tests" class="nav-link" data-page="tests">
+                                <i class="fas fa-flask"></i>
+                                <span>Speed Tests</span>
+                                <span class="nav-badge">2.4K</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#analytics" class="nav-link" data-page="analytics">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">System</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#servers" class="nav-link" data-page="servers">
+                                <i class="fas fa-server"></i>
+                                <span>Server Management</span>
+                                <span class="nav-status online"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#monitoring" class="nav-link" data-page="monitoring">
+                                <i class="fas fa-desktop"></i>
+                                <span>System Monitor</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#logs" class="nav-link" data-page="logs">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Logs & Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#backup" class="nav-link" data-page="backup">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Backup & Security</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Configuration</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#settings" class="nav-link" data-page="settings">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>App Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#api" class="nav-link" data-page="api">
+                                <i class="fas fa-code"></i>
+                                <span>API Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#maintenance" class="nav-link" data-page="maintenance">
+                                <i class="fas fa-tools"></i>
+                                <span>Maintenance</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <div class="status-indicator online"></div>
+                <div class="status-text">
+                    <div class="status-title">System Online</div>
+                    <div class="status-subtitle">All services running</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main" id="adminMain">
+        <!-- Dashboard Page -->
+        <div class="admin-page active" id="dashboard-page">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1><i class="fas fa-chart-pie"></i> Dashboard Overview</h1>
+                    <p>Monitor your Speed Lens application performance and usage statistics</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary" id="refreshDashboard">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <button class="btn btn-primary" id="exportDashboard">
+                        <i class="fas fa-download"></i> Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="totalUsers">1,247</div>
+                        <div class="metric-label">Total Users</div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i> 12% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="totalTests">24,891</div>
+                        <div class="metric-label">Speed Tests Run</div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i> 18% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="avgSpeed">87.3 Mbps</div>
+                        <div class="metric-label">Avg Download Speed</div>
+                        <div class="metric-trend neutral">
+                            <i class="fas fa-minus"></i> 2% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="serverUptime">99.8%</div>
+                        <div class="metric-label">Server Uptime</div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i> 0.2% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="avgPing">23.7 ms</div>
+                        <div class="metric-label">Average Ping</div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-down"></i> 8% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="activeRegions">127</div>
+                        <div class="metric-label">Active Regions</div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i> 5% from last month
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Analytics -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-area"></i> Usage Analytics</h3>
+                        <div class="card-actions">
+                            <select id="usageTimeframe">
+                                <option value="7d">Last 7 Days</option>
+                                <option value="30d" selected>Last 30 Days</option>
+                                <option value="90d">Last 90 Days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="usageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> Geographic Distribution</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" title="Refresh">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="geo-stats">
+                            <div class="geo-item">
+                                <div class="country-flag">🇺🇸</div>
+                                <div class="country-info">
+                                    <div class="country-name">United States</div>
+                                    <div class="country-stats">34.2% • 425 tests</div>
+                                </div>
+                                <div class="country-bar">
+                                    <div class="bar-fill" style="width: 34.2%"></div>
+                                </div>
+                            </div>
+                            <div class="geo-item">
+                                <div class="country-flag">🇮🇳</div>
+                                <div class="country-info">
+                                    <div class="country-name">India</div>
+                                    <div class="country-stats">28.7% • 358 tests</div>
+                                </div>
+                                <div class="country-bar">
+                                    <div class="bar-fill" style="width: 28.7%"></div>
+                                </div>
+                            </div>
+                            <div class="geo-item">
+                                <div class="country-flag">🇬🇧</div>
+                                <div class="country-info">
+                                    <div class="country-name">United Kingdom</div>
+                                    <div class="country-stats">12.5% • 156 tests</div>
+                                </div>
+                                <div class="country-bar">
+                                    <div class="bar-fill" style="width: 12.5%"></div>
+                                </div>
+                            </div>
+                            <div class="geo-item">
+                                <div class="country-flag">🇩🇪</div>
+                                <div class="country-info">
+                                    <div class="country-name">Germany</div>
+                                    <div class="country-stats">8.9% • 111 tests</div>
+                                </div>
+                                <div class="country-bar">
+                                    <div class="bar-fill" style="width: 8.9%"></div>
+                                </div>
+                            </div>
+                            <div class="geo-item">
+                                <div class="country-flag">🌍</div>
+                                <div class="country-info">
+                                    <div class="country-name">Others</div>
+                                    <div class="country-stats">15.7% • 196 tests</div>
+                                </div>
+                                <div class="country-bar">
+                                    <div class="bar-fill" style="width: 15.7%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> System Alerts</h3>
+                        <div class="card-actions">
+                            <span class="alert-count">3 active</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="alert-list">
+                            <div class="alert-item warning">
+                                <div class="alert-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">High Memory Usage</div>
+                                    <div class="alert-message">Server memory usage at 87%</div>
+                                    <div class="alert-time">2 minutes ago</div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="alert-item info">
+                                <div class="alert-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Database Backup Complete</div>
+                                    <div class="alert-message">Daily backup finished successfully</div>
+                                    <div class="alert-time">1 hour ago</div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-icon" title="Dismiss">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="alert-item critical">
+                                <div class="alert-icon">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">API Rate Limit Reached</div>
+                                    <div class="alert-message">External API calls exceeded limit</div>
+                                    <div class="alert-time">3 hours ago</div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-icon" title="Resolve">
+                                        <i class="fas fa-wrench"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tachometer-alt"></i> Performance Metrics</h3>
+                        <div class="card-actions">
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="performance-grid">
+                            <div class="perf-metric">
+                                <div class="perf-gauge" data-value="87">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#4CAF50" stroke-width="8" 
+                                                stroke-dasharray="314" stroke-dashoffset="40.8" transform="rotate(-90 60 60)"/>
+                                    </svg>
+                                    <div class="perf-value">87%</div>
+                                </div>
+                                <div class="perf-label">CPU Usage</div>
+                            </div>
+
+                            <div class="perf-metric">
+                                <div class="perf-gauge" data-value="62">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#2196F3" stroke-width="8" 
+                                                stroke-dasharray="314" stroke-dashoffset="119.3" transform="rotate(-90 60 60)"/>
+                                    </svg>
+                                    <div class="perf-value">62%</div>
+                                </div>
+                                <div class="perf-label">Memory</div>
+                            </div>
+
+                            <div class="perf-metric">
+                                <div class="perf-gauge" data-value="34">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#FF9800" stroke-width="8" 
+                                                stroke-dasharray="314" stroke-dashoffset="207.2" transform="rotate(-90 60 60)"/>
+                                    </svg>
+                                    <div class="perf-value">34%</div>
+                                </div>
+                                <div class="perf-label">Disk Usage</div>
+                            </div>
+
+                            <div class="perf-metric">
+                                <div class="perf-gauge" data-value="18">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#9C27B0" stroke-width="8" 
+                                                stroke-dasharray="314" stroke-dashoffset="257.5" transform="rotate(-90 60 60)"/>
+                                    </svg>
+                                    <div class="perf-value">18%</div>
+                                </div>
+                                <div class="perf-label">Network Load</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card full-width">
+                <div class="card-header">
+                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                    <div class="card-actions">
+                        <button class="btn btn-sm btn-secondary">View All</button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-time">2 min ago</div>
+                            <div class="activity-icon user">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">New user registered</div>
+                                <div class="activity-description">john.doe@example.com joined the platform</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-time">15 min ago</div>
+                            <div class="activity-icon test">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">High-speed test completed</div>
+                                <div class="activity-description">User achieved 1.2 Gbps download speed in New York</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-time">1 hour ago</div>
+                            <div class="activity-icon system">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">System maintenance completed</div>
+                                <div class="activity-description">Database optimization and cache refresh completed</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-time">2 hours ago</div>
+                            <div class="activity-icon alert">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Server load spike detected</div>
+                                <div class="activity-description">Automatic scaling activated for server cluster</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Management Page -->
+        <div class="admin-page" id="users-page">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1><i class="fas fa-users"></i> User Management</h1>
+                    <p>Manage user accounts, permissions, and activity</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary" id="exportUsers">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <button class="btn btn-primary" id="addUser">
+                        <i class="fas fa-user-plus"></i> Add User
+                    </button>
+                </div>
+            </div>
+
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Search Users:</label>
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="userSearch" placeholder="Search by name, email, or ID...">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="userStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="suspended">Suspended</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Role:</label>
+                    <select id="userRoleFilter">
+                        <option value="">All Roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                        <option value="premium">Premium</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="data-table-container">
+                <table class="data-table" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAllUsers">
+                            </th>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Tests</th>
+                            <th>Last Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <div class="pagination-info">
+                    Showing 1-20 of 156 users
+                </div>
+                <div class="pagination-controls">
+                    <button class="btn-icon" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="page-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span>...</span>
+                        <button class="page-btn">8</button>
+                    </span>
+                    <button class="btn-icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional pages will be loaded dynamically -->
+    </main>
+
+    <!-- Modals and Overlays -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    
+    <!-- User Modal -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="userModalTitle">Add New User</h2>
+                <button class="modal-close" id="closeUserModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="userName">Full Name</label>
+                            <input type="text" id="userName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userEmail">Email Address</label>
+                            <input type="email" id="userEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userRole">Role</label>
+                            <select id="userRole" required>
+                                <option value="user">User</option>
+                                <option value="premium">Premium</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userStatus">Status</label>
+                            <select id="userStatus" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userNotes">Notes</label>
+                        <textarea id="userNotes" rows="3" placeholder="Optional notes about this user..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelUserModal">Cancel</button>
+                <button class="btn btn-primary" id="saveUser">Save User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="btn btn-sm btn-secondary" id="markAllRead">Mark All Read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">High Memory Usage Alert</div>
+                    <div class="notification-message">Server memory usage has exceeded 85% threshold</div>
+                    <div class="notification-time">5 minutes ago</div>
+                </div>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Backup Completed</div>
+                    <div class="notification-message">Daily database backup completed successfully</div>
+                    <div class="notification-time">1 hour ago</div>
+                </div>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">System Update Available</div>
+                    <div class="notification-message">A new version of Speed Lens is available for update</div>
+                    <div class="notification-time">3 hours ago</div>
+                </div>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-panel.js"></script>
+</body>
+</html>

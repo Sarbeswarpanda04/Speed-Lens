@@ -3,7 +3,7 @@
 /* Use higher specificity to override other styles */
 .section#history .analytics-container,
 #analyticsContainer.analytics-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background: linear-gradient(135deg, #ccd5ff 0%, #73aff3 100%) !important;
     border-radius: 20px !important;
     padding: 30px !important;
     margin: 30px 0 !important;

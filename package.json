@@ -35,6 +35,7 @@
   "scripts": {
     "start": "python -m http.server 8000",
     "dev": "live-server --port=3000 --host=0.0.0.0",
+    "build": "echo 'Build completed - files are in public directory'",
     "test": "echo 'No automated tests yet'",
     "lint": "echo 'Add linting in future versions'",
     "format": "echo 'Add formatting in future versions'",
